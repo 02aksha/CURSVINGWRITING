@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursive Writing Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .input-label {
+            font-weight: bold;
+        }
+        .input-field {
+            width: 300px;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .font-select {
+            width: 300px;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .cursive-text {
+            font-size: 24px;
+            margin-top: 20px;
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cursive Writing Generator</h1>
+    <div class="container">
+        <label for="text" class="input-label">Enter Text:</label>
+        <input type="text" id="text" class="input-field" placeholder="Type your text here">
+        
+        <label for="font" class="input-label">Select Cursive Font:</label>
+        <select id="font" class="font-select">
+            <option value="cursive">Default Cursive</option>
+            <option value="Lucida Handwriting">Lucida Handwriting</option>
+            <option value="Monotype Corsiva">Monotype Corsiva</option>
+            <!-- Add more cursive fonts here -->
+        </select>
+        
+        <div class="cursive-text" id="cursive-text">Cursive Text</div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('text');
+        const fontSelect = document.getElementById('font');
+        const cursiveText = document.getElementById('cursive-text');
+
+        function updateCursiveText() {
+            const text = textInput.value;
+            const selectedFont = fontSelect.value;
+            cursiveText.textContent = text;
+            cursiveText.style.fontFamily = selectedFont;
+        }
+
+        textInput.addEventListener('input', updateCursiveText);
+        fontSelect.addEventListener('change', updateCursiveText);
+
+        // Initial update
+        updateCursiveText();
+    </script>
+</body>
+</html>
